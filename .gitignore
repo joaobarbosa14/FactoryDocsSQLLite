@@ -1,0 +1,14 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/.angular/
+.vs/
+.vscode/
+.env
+appsettings.Development.json
+
+# Local SQLite database
+**/FactoryDocs.db
+**/FactoryDocs.db-shm
+**/FactoryDocs.db-wal
