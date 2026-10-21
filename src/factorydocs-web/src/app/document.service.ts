@@ -1,7 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CreateDocumentRequest, DocumentRecord } from './document.model';
+import { CreateDocumentRequest, DocumentRecord, 
+  CreateDocumentVersionRequest, DocumentVersion } from './document.model';
 
 @Injectable({ providedIn: 'root' })
 export class DocumentService {
@@ -20,5 +21,21 @@ export class DocumentService {
 
   updateStatus(id: number, status: string): Observable<DocumentRecord> {
     return this.http.patch<DocumentRecord>(`${this.apiUrl}/${id}/status`, { status });
+  }
+
+  getVersions(id: number): Observable<DocumentVersion[]> {
+    return this.http.get<DocumentVersion[]>(
+      `${this.apiUrl}/${id}/versions`
+    );
+  }
+
+  createVersion(
+    id: number,
+    request: CreateDocumentVersionRequest
+  ): Observable<DocumentVersion> {
+    return this.http.post<DocumentVersion>(
+      `${this.apiUrl}/${id}/versions`,
+      request
+    );
   }
 }
