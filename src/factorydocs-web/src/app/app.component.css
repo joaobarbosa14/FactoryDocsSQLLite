@@ -126,12 +126,18 @@ button.secondary {
 
 /* 1. Modificar o botão principal para ignorar o cursor e animações quando desativado */
 button:disabled {
-    background: #a0aec0;      /* Cor cinzenta de botão desativado */
-    color: #e2e8f0;           /* Texto mais claro */
-    cursor: not-allowed;      /* Muda o cursor para o símbolo de proibido */
-    transform: none !important; /* Remove o efeito de subir do hover */
-    box-shadow: none !important; /* Remove a sombra */
-    opacity: 0.6;             /* Torna o botão ligeiramente transparente */
+    background: #a0aec0;
+    /* Cor cinzenta de botão desativado */
+    color: #e2e8f0;
+    /* Texto mais claro */
+    cursor: not-allowed;
+    /* Muda o cursor para o símbolo de proibido */
+    transform: none !important;
+    /* Remove o efeito de subir do hover */
+    box-shadow: none !important;
+    /* Remove a sombra */
+    opacity: 0.6;
+    /* Torna o botão ligeiramente transparente */
 }
 
 /* 2. Se o botão for da classe .secondary e estiver desativado (opcional, para o botão Refresh) */
@@ -436,5 +442,206 @@ footer {
     label.wide,
     .form-actions {
         grid-column: span 1;
+    }
+
+
+    /* Version history */
+
+    .small-button {
+        padding: 8px 10px;
+        white-space: nowrap;
+    }
+
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(10, 20, 44, .62);
+        backdrop-filter: blur(5px);
+        overflow-y: auto;
+    }
+
+    .history-modal {
+        width: min(760px, 100%);
+        max-height: min(90vh, 900px);
+        overflow-y: auto;
+        background: #fff;
+        border: 1px solid #e8edf5;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 25px 80px #08132f40;
+    }
+
+    .modal-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 22px;
+    }
+
+    .modal-heading h2 {
+        margin-bottom: 7px;
+    }
+
+    .close-button {
+        min-width: 38px;
+        padding: 9px;
+    }
+
+    .history-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 18px;
+    }
+
+    .version-count {
+        font-size: 12px;
+        font-weight: 700;
+        color: #748098;
+    }
+
+    .version-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .version-item {
+        display: grid;
+        grid-template-columns: 62px minmax(0, 1fr);
+        gap: 15px;
+        padding: 20px 0;
+        border-top: 1px solid #edf0f6;
+    }
+
+    .version-marker {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .version-marker span {
+        display: inline-flex;
+        justify-content: center;
+        min-width: 52px;
+        padding: 7px 9px;
+        border-radius: 8px;
+        color: #3459d9;
+        background: #edf2ff;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .version-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .version-title-row strong {
+        color: #26334f;
+        font-size: 13px;
+    }
+
+    .version-title-row time {
+        color: #929db0;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    .version-category,
+    .version-description,
+    .version-reason {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #68758c;
+        overflow-wrap: anywhere;
+    }
+
+    .version-category {
+        margin: 5px 0;
+        color: #5270c7;
+        font-weight: 700;
+    }
+
+    .version-description {
+        margin: 7px 0;
+    }
+
+    .version-reason {
+        margin: 9px 0 5px;
+        padding: 9px 11px;
+        border-radius: 7px;
+        background: #f7f9fd;
+    }
+
+    .version-author {
+        color: #929db0;
+        font-size: 10px;
+    }
+
+    .version-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 20px;
+        padding: 18px;
+        border: 1px solid #e8edf5;
+        border-radius: 12px;
+        background: #f9faff;
+    }
+
+    .version-form h3 {
+        grid-column: 1 / -1;
+        margin: 0;
+        font-size: 15px;
+        color: #18284c;
+    }
+
+    .version-form .form-actions {
+        grid-column: 1 / -1;
+        gap: 9px;
+    }
+
+    @media (max-width: 600px) {
+        .modal-backdrop {
+            padding: 8px;
+        }
+
+        .history-modal {
+            padding: 17px;
+            border-radius: 13px;
+        }
+
+        .version-form {
+            grid-template-columns: 1fr;
+            padding: 13px;
+        }
+
+        .version-form h3,
+        .version-form .form-actions {
+            grid-column: 1;
+        }
+
+        .version-title-row {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .version-item {
+            grid-template-columns: 48px minmax(0, 1fr);
+            gap: 10px;
+        }
+
+        .version-marker span {
+            min-width: 43px;
+            font-size: 11px;
+        }
     }
 }
