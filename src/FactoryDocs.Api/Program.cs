@@ -1,6 +1,7 @@
 using FactoryDocs.Api.Data;
 using FactoryDocs.Api.Models;
 using Microsoft.EntityFrameworkCore;
+using FactoryDocs.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -429,6 +430,8 @@ app.MapPost(
         $"/api/documents/{id}/versions",
         version);
 });
+
+app.MapDocumentVersionEndpoints();
 
 app.Run();
 

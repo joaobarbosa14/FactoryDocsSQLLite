@@ -38,4 +38,18 @@ export class DocumentService {
       request
     );
   }
+
+  restoreVersion(
+    documentId: number,
+    versionId: number,
+    request: {
+      createdBy: string;
+      changeReason: string;
+    }
+  ): Observable<DocumentVersion> {
+    return this.http.post<DocumentVersion>(
+      `${this.apiUrl}/${documentId}/versions/${versionId}/restore`,
+      request
+    );
+  }
 }
